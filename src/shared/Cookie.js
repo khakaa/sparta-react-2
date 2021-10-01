@@ -1,12 +1,28 @@
 // 쿠키를 만드는 함수
 export function getCookie(name) {
-  let value = "; " + document.cookie; // user_id = dubu ; ex=22222     user_pw = ppp
-  let parts = value.split(`; ${name}=`); // 첫번째꺼 버리고 두번째값 부터 valu값만 가지고온다.
+  let cookieKey = name + "=";
+  let result = "";
+  const cookieArr = document.cookie.split(";");
 
-  if (parts.length === 2) {
-    return parts.pop().split(";").shift();
+  for (let i = 0; i < cookieArr.length; i++) {
+    if (cookieArr[i][0] === " ") {
+      cookieArr[i] = cookieArr[i].substring(1);
+    }
+
+    if (cookieArr[i].indexOf(cookieKey) === 0) {
+      result = cookieArr[i].slice(cookieKey.length, cookieArr[i].length);
+      return result;
+    }
   }
+  return result;
 }
+
+// let value = "; " + document.cookie; // "; user1=a; user2=b"
+// let parts = value.split(`; ${name}=`); // 첫번째꺼 버리고 두번째값 부터 valu값만 가지고온다.
+
+// if (parts.length === 2) {
+//   return parts.pop().split(";").shift();
+// }
 
 // 쿠키를 가져오는 함수
 export function setCookie(name, value, exp) {
