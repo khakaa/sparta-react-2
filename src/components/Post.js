@@ -20,7 +20,9 @@ const Post = (props) => {
         </Grid>
 
         <Grid padding="16px">
-          <Text>{props.commentCnt}</Text>
+          <Text margin="0px" bold>
+            댓글 {props.commentCnt}개
+          </Text>
         </Grid>
 
         {/* <div>user profile / user name / insert_dt /</div>
