@@ -26,7 +26,7 @@ const Image = (props) => {
 
 Image.defaultProps = {
   shape: "",
-  src: "/assets/sundog.jpeg",
+  src: "",
   size: 36,
 };
 

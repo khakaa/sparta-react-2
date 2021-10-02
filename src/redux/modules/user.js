@@ -2,7 +2,7 @@ import { createAction, handleActions } from "redux-actions"; //액션, 리듀서
 import { produce } from "immer";
 import { setCookie, getCookie, deleteCookie } from "../../shared/Cookie";
 
-import firebase from "firebase/compat/app";
+import firebase from "firebase/app";
 import { auth } from "../../shared/firebase";
 
 // action

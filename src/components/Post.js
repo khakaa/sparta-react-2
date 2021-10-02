@@ -12,11 +12,11 @@ const Post = (props) => {
         </Grid>
 
         <Grid padding="16px">
-          <Text>{props.content}</Text>
+          <Text>{props.contents}</Text>
         </Grid>
 
         <Grid>
-          <Image shape="rectangle" src={props.src}></Image>
+          <Image shape="rectangle" src={props.imageUrl}></Image>
         </Grid>
 
         <Grid padding="16px">
@@ -24,11 +24,6 @@ const Post = (props) => {
             댓글 {props.commentCnt}개
           </Text>
         </Grid>
-
-        {/* <div>user profile / user name / insert_dt /</div>
-        <div>contents</div>
-        <div>image</div>
-        <div>comment cnt</div> */}
       </Grid>
     </React.Fragment>
   );
@@ -41,7 +36,7 @@ Post.defaultProps = {
     userProfile: "/image-community/public/assets/sundog.jpeg",
   },
   imageUrl: "/image-community/public/assets/sundog.jpeg",
-  content: "멈멍이",
+  contents: "멈멍이",
   commentCnt: 10,
   insertDt: "2021-09-30 16:00:00",
 };

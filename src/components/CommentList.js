@@ -1,5 +1,4 @@
 import React from "react";
-import { useRouteMatch } from "react-router";
 import { Grid, Image, Text } from "../elements";
 
 const CommentList = (props) => {

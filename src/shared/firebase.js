@@ -1,5 +1,7 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-jd7lWM5OnXFEitVn5eU3aL2-RIQP_V0",
@@ -11,10 +13,13 @@ const firebaseConfig = {
   measurementId: "G-FJYD9TRZ0K",
 };
 
+// firestore에서 데이터 불러오기 위해서 연동
 //초기화
 firebase.initializeApp(firebaseConfig);
 
 const apiKey = firebaseConfig.apiKey;
 const auth = firebase.auth();
+const firestore = firebase.firestore();
+const storage = firebase.storage();
 
-export { auth, apiKey };
+export { auth, apiKey, firestore, storage };
