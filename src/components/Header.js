@@ -28,7 +28,12 @@ const Header = (props) => {
 
         <Grid isFlex>
           <Button text="내 정보" />
-          <Button text="알림" />
+          <Button
+            _onClick={() => {
+              history.push("/noti");
+            }}
+            text="알림"
+          />
           <Button
             text="로그아웃"
             _onClick={() => {

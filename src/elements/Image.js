@@ -21,7 +21,11 @@ const Image = (props) => {
       </AspectOutter>
     );
   }
-  return <React.Fragment></React.Fragment>;
+  return (
+    <React.Fragment>
+      <ImageDefault {...styles}></ImageDefault>
+    </React.Fragment>
+  );
 };
 
 Image.defaultProps = {
@@ -29,6 +33,14 @@ Image.defaultProps = {
   src: "",
   size: 36,
 };
+
+const ImageDefault = styled.div`
+  --size: ${(props) => props.size}px; // css에서 --로 변수를 쓸 수 있다.
+  width: var(--size);
+  height: var(--size);
+  background-image: url("${(props) => props.src}");
+  background-size: cover; // 원보다 사진크기가 작아도 원크기에 맞게 늘려서 맞춰버림
+`;
 
 const AspectOutter = styled.div`
   width: 100%;
