@@ -1,4 +1,6 @@
 import React from "react";
+import { history } from "../redux/configureStore";
+
 import { Grid, Image, Text } from "../elements";
 
 const Card = (props) => {
@@ -6,7 +8,15 @@ const Card = (props) => {
 
   return (
     <>
-      <Grid padding="16px" isFlex bg="#ffffff" margin="8px 0px">
+      <Grid
+        padding="16px"
+        isFlex
+        bg="#ffffff"
+        margin="8px 0px"
+        _onClick={() => {
+          history.push(`/post/${postId}`);
+        }}
+      >
         <Grid
           width="auto"
           margin="0px 8px 0px 0px

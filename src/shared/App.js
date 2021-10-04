@@ -18,6 +18,7 @@ import Signup from "../pages/Singnup";
 import PostWrite from "../pages/PostWrite";
 import Notification from "../pages/Notification";
 import Permit from "./Permit";
+import Search from "./Search";
 
 import { actionCreators as userActions } from "../redux/modules/user";
 
@@ -46,6 +47,7 @@ function App() {
           <Route path="/write/:id" exact component={PostWrite} />
           <Route path="/post/:id" exact component={PostDetail} />
           <Route path="/noti" exact component={Notification} />
+          <Route path="/search" exact component={Search} />
         </ConnectedRouter>
       </Grid>
 

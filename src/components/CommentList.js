@@ -1,16 +1,35 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { Grid, Image, Text } from "../elements";
 
+import { actionCreators as commentActions } from "../redux/modules/comment";
+
 const CommentList = (props) => {
+  const dispatch = useDispatch();
+  const commentList = useSelector((state) => state.comment.list);
+
+  const { postId } = props;
+
+  React.useEffect(() => {
+    if (!commentList[postId]) {
+      // 코멘트 정보가 없으면 불러오기
+      dispatch(commentActions.getCommentFB(postId));
+    }
+  }, []);
+
+  // console.log(commentList);
+  // comment가 없거나 postId가 없으면 아무것도 안넘겨준다
+  if (!commentList[postId] || !postId) {
+    return null;
+  }
+
   return (
     <>
       <Grid padding="16px">
-        <CommentItem />
-        <CommentItem />
-        <CommentItem />
-        <CommentItem />
-        <CommentItem />
-        <CommentItem />
+        {commentList[postId].map((c) => {
+          return <CommentItem key={c.id} {...c} />;
+        })}
       </Grid>
     </>
   );
@@ -19,7 +38,7 @@ const CommentList = (props) => {
 export default CommentList;
 
 const CommentItem = (props) => {
-  const { userProfile, userName, userId, postId, insertDt, content } = props;
+  const { userProfile, userName, userId, postId, insertDt, contents } = props;
 
   return (
     <>
@@ -30,7 +49,7 @@ const CommentItem = (props) => {
         </Grid>
 
         <Grid isFlex margin="0px 0px 0px 10px">
-          <Text margin="0px">{content}</Text>
+          <Text margin="0px">{contents}</Text>
           <Text margin="0px">{insertDt}</Text>
         </Grid>
       </Grid>

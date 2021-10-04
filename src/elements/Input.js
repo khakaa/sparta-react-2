@@ -4,7 +4,16 @@ import styled from "styled-components";
 import { Text, Grid } from ".";
 
 const Input = (props) => {
-  const { label, placeholder, _onChange, type, multiLine, value } = props;
+  const {
+    label,
+    placeholder,
+    _onChange,
+    type,
+    multiLine,
+    value,
+    isSubmit,
+    enterSubmit,
+  } = props;
 
   if (multiLine) {
     return (
@@ -25,11 +34,25 @@ const Input = (props) => {
         {" "}
         {/* Text와 ElInput을 묶어주는 역할*/}
         {label && <Text margin="0px">{label}</Text>}
-        <ElInput
-          type={type}
-          placeholder={placeholder}
-          onChange={_onChange}
-        ></ElInput>
+        {isSubmit ? (
+          <ElInput
+            type={type}
+            placeholder={placeholder}
+            onChange={_onChange}
+            value={value}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                enterSubmit(e);
+              }
+            }}
+          ></ElInput>
+        ) : (
+          <ElInput
+            type={type}
+            placeholder={placeholder}
+            onChange={_onChange}
+          ></ElInput>
+        )}
       </Grid>
     </React.Fragment>
   );
@@ -41,6 +64,8 @@ Input.defaultProps = {
   type: "text",
   multiLine: false,
   value: "",
+  isSubmit: false,
+  enterSubmit: () => {},
   _onChange: () => {},
 };
 

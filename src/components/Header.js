@@ -1,10 +1,11 @@
 import React from "react";
-import { Grid, Text, Button } from "../elements";
-
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
-
 import { history } from "../redux/configureStore";
+
+import { Grid, Text, Button } from "../elements";
+import NotiBadge from "./NotiBadge";
+
 import { apiKey } from "../shared/firebase";
 
 const Header = (props) => {
@@ -28,11 +29,10 @@ const Header = (props) => {
 
         <Grid isFlex>
           <Button text="내 정보" />
-          <Button
+          <NotiBadge
             _onClick={() => {
               history.push("/noti");
             }}
-            text="알림"
           />
           <Button
             text="로그아웃"

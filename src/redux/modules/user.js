@@ -104,7 +104,7 @@ const loginCheckFB = () => {
             userName: user.displayName,
             userProfile: "",
             id: user.email,
-            uid: user.uid,
+            uid: user.uid, // firebase의 user's unique ID
           })
         );
       } else {
