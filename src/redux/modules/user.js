@@ -22,11 +22,6 @@ const initialState = {
   isLogin: false,
 };
 
-// 유저 객체
-const userInitial = {
-  userName: "harin",
-};
-
 //middleware actions
 // 로그인
 const loginFB = (id, pwd) => {
@@ -42,7 +37,7 @@ const loginFB = (id, pwd) => {
               setUser({
                 userName: user.user.displayName,
                 id: id,
-                userProfile: "",
+                userProfile: "/image-community/public/assets/sundog.jpeg",
                 uid: user.user.uid, // 고유값
               })
             );
@@ -76,7 +71,7 @@ const signupFB = (id, pwd, userName) => {
               setUser({
                 userName: userName,
                 id: id,
-                userProfile: "",
+                userProfile: "/image-community/public/assets/sundog.jpeg",
                 uid: user.user.uid,
               })
             );
@@ -102,7 +97,7 @@ const loginCheckFB = () => {
         dispatch(
           setUser({
             userName: user.displayName,
-            userProfile: "",
+            userProfile: "/image-community/public/assets/sundog.jpeg",
             id: user.email,
             uid: user.uid, // firebase의 user's unique ID
           })

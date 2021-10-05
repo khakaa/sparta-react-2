@@ -1,0 +1,47 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "comment",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "insertDt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "comment",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "postId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "insertDt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "comment",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "userId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "insertDt",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

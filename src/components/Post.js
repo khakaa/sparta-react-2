@@ -3,13 +3,14 @@ import { history } from "../redux/configureStore";
 
 import { Grid, Image, Text, Button } from "../elements";
 
-const Post = (props) => {
+const Post = React.memo((props) => {
+  console.log("hi im component");
   return (
     <React.Fragment>
       <Grid>
         <Grid isFlex padding="16px">
           <Grid isFlex witdh="auto">
-            <Image shape="circle" src={props.src}></Image>
+            <Image shape="circle" src={props.userInfo.userProfile}></Image>
             <Text bold>{props.userInfo.userName}</Text>
             <Text>{props.insertDt}</Text>
             {props.isMe && (
@@ -42,7 +43,7 @@ const Post = (props) => {
       </Grid>
     </React.Fragment>
   );
-};
+});
 
 //Props의 초깃값을 설정해서 props가 없어서 오류가 나는 것을 방지한다.
 Post.defaultProps = {
