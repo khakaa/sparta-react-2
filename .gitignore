@@ -30,3 +30,10 @@ yarn-error.log*
 ### Firebase Patch ###
 .runtimeconfig.json
 .firebase/
+
+database.rules.json
+firebase.json
+firestore.indexes.json
+firestore.rules
+storage.rules
+
